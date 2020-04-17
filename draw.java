@@ -17,10 +17,7 @@ import java.awt.Color;
  * @version (a version number or a date)
  */
 public class draw{
-    public static final double X = 300.0; // horizontal centre of the lollipop
-    public static final double Y = 180.0; // vertical centre of the lollipop
-    public static final double SIZE = 80.0; // diameter of lollipop
-    public static final double STICK = 200.0; // length of stick
+   
 
     /**
      * Constructor for objects of class draw 
@@ -31,23 +28,37 @@ public class draw{
     }
     
     /**
+     * Draw a lollipop at (300, 180), asking the user for the size
+     */
+    public void doDrawLollipop(){
+        double diam = UI.askDouble("Diameter of lollipop: ");
+        double stickHeight = UI.askDouble("Length of stick: ");
+        drawLollipop(300, 180, diam, stickHeight);
+        drawLollipop(50, 60, diam/2, stickHeight/2);
+        drawLollipop(400, 100, diam*1.5, stickHeight*1.5);
+        
+    }
+    
+    /**
      * blah
      */
-    private void drawLollipop() {
-        double left = X-SIZE/2.0; //left of lollipop
-        double top = Y-SIZE/2.0; //top of lollipop
-        double bottom = Y+STICK; //bottom of stick
+    private void drawLollipop(double x, double y, double size, double stick) {
+        double left = x-size/2.0; //left of lollipop
+        double top = y-size/2.0; //top of lollipop
+        double bottom = y+stick; //bottom of stick
         
+        //set colour of stick
+        UI.setColor(Color.black);
         // set line width to 10
-        UI.setLineWidth(SIZE/8.0);
+        UI.setLineWidth(size/8.0);
         // draw line (300, 200) to (300, 400)
-        UI.drawLine(X, Y, X, bottom);
+        UI.drawLine(x, y, x, bottom);
         // set line width to 1
         UI.setLineWidth(1);
         // set colour to red
         UI.setColor(Color.red);
         //fill oval  (260, 160) 80 x 80
-        UI.fillOval(left, top, SIZE, SIZE);
+        UI.fillOval(left, top, size, size);
     }
 
     /**
@@ -56,7 +67,7 @@ public class draw{
      */
     public static void main(String[] args){
         draw obj = new draw();
-        obj.drawLollipop();
+        obj.doDrawLollipop();
     }
 
 }
