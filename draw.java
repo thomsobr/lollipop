@@ -34,16 +34,20 @@ public class draw{
      * blah
      */
     private void drawLollipop() {
+        double left = X-SIZE/2.0; //left of lollipop
+        double top = Y-SIZE/2.0; //top of lollipop
+        double bottom = Y+STICK; //bottom of stick
+        
         // set line width to 10
         UI.setLineWidth(SIZE/8.0);
         // draw line (300, 200) to (300, 400)
-        UI.drawLine(X, Y, X, Y+STICK);
+        UI.drawLine(X, Y, X, bottom);
         // set line width to 1
         UI.setLineWidth(1);
         // set colour to red
         UI.setColor(Color.red);
         //fill oval  (260, 160) 80 x 80
-        UI.fillOval(X-SIZE/2.0, Y-SIZE/2.0, SIZE, SIZE);
+        UI.fillOval(left, top, SIZE, SIZE);
     }
 
     /**
